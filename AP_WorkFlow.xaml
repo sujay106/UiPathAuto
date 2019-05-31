@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1260.8,4203.2" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uo="clr-namespace:UiPathTeam.OSInformation;assembly=UiPathTeam.OSInformation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1260.8,4466.4" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uo="clr-namespace:UiPathTeam.OSInformation;assembly=UiPathTeam.OSInformation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -63,7 +63,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="AP" sap:VirtualizedContainerService.HintSize="1220.8,4083.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence DisplayName="AP" sap:VirtualizedContainerService.HintSize="1220.8,4386.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BodyText" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="FilterEmails" />
@@ -75,13 +75,14 @@
       <Variable x:TypeArguments="x:Int32" Default="1" Name="Increment" />
       <Variable x:TypeArguments="uo:WindowsInformation" Name="VerINfo" />
       <Variable x:TypeArguments="x:Int32" Default="2" Name="CellValue" />
+      <Variable x:TypeArguments="x:String" Name="InvoiceNum" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="mFinance" sap:VirtualizedContainerService.HintSize="1198.4,3865.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="mFinance" sap:VirtualizedContainerService.HintSize="1198.4,4168.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -106,13 +107,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1176,3585.6" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[FilterEmails]">
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1176,3888.8" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[FilterEmails]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="1160,3451.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence sap:VirtualizedContainerService.HintSize="1160,3754.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Default="C:\Users\Sujay\Desktop\AP" Name="Path2" />
               </Sequence.Variables>
@@ -121,9 +122,9 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[mail.Subject.Contains(&quot;DL_Invoice&quot;)]" sap:VirtualizedContainerService.HintSize="1137.6,3326.4" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[mail.Subject.Contains(&quot;DL_Invoice&quot;)]" sap:VirtualizedContainerService.HintSize="1137.6,3629.6" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="798.4,3176.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence sap:VirtualizedContainerService.HintSize="798.4,3480" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -151,9 +152,9 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:CommentOut>
-                    <If Condition="[mail.Attachments.Any]" sap:VirtualizedContainerService.HintSize="776,2959.2" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If Condition="[mail.Attachments.Any]" sap:VirtualizedContainerService.HintSize="776,3262.4" sap2010:WorkflowViewState.IdRef="If_4">
                       <If.Then>
-                        <Sequence DisplayName="Move to folder" sap:VirtualizedContainerService.HintSize="436.8,2809.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence DisplayName="Move to folder" sap:VirtualizedContainerService.HintSize="436.8,3112.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="PONumber" />
                             <Variable x:TypeArguments="x:String" Name="JurisCode" />
@@ -180,7 +181,7 @@
                           <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" ContinueOnError="True" DisplayName="Open email" FileName="[&quot;Emails\&quot;+MailSubject+&quot;.mht&quot;]" sap:VirtualizedContainerService.HintSize="414.4,88" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="GL Code" sap:VirtualizedContainerService.HintSize="414.4,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
                             <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="dafd674d301ef2bc123de68df7c814f4" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - *.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tag='P' idx='1' /&gt;" WaitForReady="INTERACTIVE" />
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="dafd674d301ef2bc123de68df7c814f4" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - mFinance\Emails\DL_Invoice-1.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' idx='1' tableCol='2' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
                             </ui:GetValue.Target>
                             <ui:GetValue.Value>
                               <OutArgument x:TypeArguments="x:String">[GLCode]</OutArgument>
@@ -188,7 +189,7 @@
                           </ui:GetValue>
                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="WBS Number" sap:VirtualizedContainerService.HintSize="414.4,107.2" sap2010:WorkflowViewState.IdRef="GetValue_2">
                             <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f03ecced2fc985311766df05bb4bd9f" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - *.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tableRow='2' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f03ecced2fc985311766df05bb4bd9f" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - mFinance\Emails\DL_Invoice-1.mht' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableRow='2' tag='TD' /&gt;" WaitForReady="INTERACTIVE" />
                             </ui:GetValue.Target>
                             <ui:GetValue.Value>
                               <OutArgument x:TypeArguments="x:String">[WBSNum]</OutArgument>
@@ -196,7 +197,7 @@
                           </ui:GetValue>
                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="PO Number" sap:VirtualizedContainerService.HintSize="414.4,107.2" sap2010:WorkflowViewState.IdRef="GetValue_3">
                             <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b07e78898c6c5005781f21a9dd9e9371" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - *.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tableRow='3' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b07e78898c6c5005781f21a9dd9e9371" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - mFinance\Emails\DL_Invoice-1.mht' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableRow='3' tag='TD' /&gt;" WaitForReady="INTERACTIVE" />
                             </ui:GetValue.Target>
                             <ui:GetValue.Value>
                               <OutArgument x:TypeArguments="x:String">[PONumber]</OutArgument>
@@ -204,7 +205,7 @@
                           </ui:GetValue>
                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Jurisdiction Code" sap:VirtualizedContainerService.HintSize="414.4,107.2" sap2010:WorkflowViewState.IdRef="GetValue_4">
                             <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0000dcc82ed9f15ce1fbf17ea5e97f63" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - *.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tableRow='4' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0000dcc82ed9f15ce1fbf17ea5e97f63" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - mFinance\Emails\DL_Invoice-1.mht' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableRow='4' tag='TD' /&gt;" WaitForReady="INTERACTIVE" />
                             </ui:GetValue.Target>
                             <ui:GetValue.Value>
                               <OutArgument x:TypeArguments="x:String">[JurisCode]</OutArgument>
@@ -212,10 +213,18 @@
                           </ui:GetValue>
                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Cost Center" sap:VirtualizedContainerService.HintSize="414.4,107.2" sap2010:WorkflowViewState.IdRef="GetValue_5">
                             <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="62728d439354fffb5c715a79e3b366e5" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - *.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tableRow='5' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="62728d439354fffb5c715a79e3b366e5" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - mFinance\Emails\DL_Invoice-1.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tableRow='5' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
                             </ui:GetValue.Target>
                             <ui:GetValue.Value>
                               <OutArgument x:TypeArguments="x:String">[CostCenter]</OutArgument>
+                            </ui:GetValue.Value>
+                          </ui:GetValue>
+                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Invoice number" sap:VirtualizedContainerService.HintSize="414.4,107.2" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                            <ui:GetValue.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="62728d439354fffb5c715a79e3b366e5" Selector="&lt;html url='mhtml:file://C:\Users\Sujay\Documents\UiPath\Priority_Email - mFinance\Emails\DL_Invoice-1.mht' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p' tableCol='2' tableRow='6' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
+                            </ui:GetValue.Target>
+                            <ui:GetValue.Value>
+                              <OutArgument x:TypeArguments="x:String">[InvoiceNum]</OutArgument>
                             </ui:GetValue.Value>
                           </ui:GetValue>
                           <ui:WriteCell Cell="[&quot;A&quot; + CellValue.ToString]" DisplayName="Update GL Code" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[GLCode]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
@@ -223,6 +232,7 @@
                           <ui:WriteCell Cell="[&quot;C&quot; + CellValue.ToString]" DisplayName="Update PO Num" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[PONumber]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
                           <ui:WriteCell Cell="[&quot;D&quot; + CellValue.ToString]" DisplayName="Update Juris Code" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[JurisCode]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
                           <ui:WriteCell Cell="[&quot;E&quot; + CellValue.ToString]" DisplayName="Update Cost Centre" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[CostCenter]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;F&quot; + CellValue.ToString]" DisplayName="Update Cost Centre" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[InvoiceNum]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
                           <Assign DisplayName="Cell increment" sap:VirtualizedContainerService.HintSize="414.4,60" sap2010:WorkflowViewState.IdRef="Assign_20">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Int32">[CellValue]</OutArgument>

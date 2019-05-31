@@ -1,6 +1,6 @@
 {
-  "name": "Priority_Email",
-  "description": "Priority_Email",
+  "name": "Priority_Email_mFinance",
+  "description": "mFinance workflow",
   "main": "Main.xaml",
   "dependencies": {
     "GoogleSpreadsheet.Activities": "1.0.7053.27728",
