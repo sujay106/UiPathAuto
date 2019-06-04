@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1305.6,4188" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uo="clr-namespace:UiPathTeam.OSInformation;assembly=UiPathTeam.OSInformation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1305.6,4228" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uo="clr-namespace:UiPathTeam.OSInformation;assembly=UiPathTeam.OSInformation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -88,7 +88,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Read Emails (IMAP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="1220.8,22.4" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[FilterEmails]" OnlyUnreadMessages="True" Password="SujayAutomation" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
+      <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Read Emails (IMAP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="1220.8,22.4" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[FilterEmails]" OnlyUnreadMessages="True" Password="SujayAutomation123" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
       <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1220.8,3796" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[FilterEmails]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
@@ -128,7 +128,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Download email attachments" FolderPath="C:\Users\Sujay\Desktop\AP\Invoices" sap:VirtualizedContainerService.HintSize="414.4,88" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[mail]" />
+                          <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Download email attachments" FolderPath="Invoices" sap:VirtualizedContainerService.HintSize="414.4,88" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[mail]" />
                           <Assign sap:VirtualizedContainerService.HintSize="414.4,60" sap2010:WorkflowViewState.IdRef="Assign_18">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[MailSubject]</OutArgument>
@@ -187,12 +187,12 @@
                               <OutArgument x:TypeArguments="x:String">[InvoiceNum]</OutArgument>
                             </ui:GetValue.Value>
                           </ui:GetValue>
-                          <ui:WriteCell Cell="[&quot;A&quot; + CellValue.ToString]" DisplayName="Update GL Code" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[GLCode]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
-                          <ui:WriteCell Cell="[&quot;B&quot; + CellValue.ToString]" DisplayName="Update WBS" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[WBSNum]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
-                          <ui:WriteCell Cell="[&quot;C&quot; + CellValue.ToString]" DisplayName="Update PO Num" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[PONumber]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
-                          <ui:WriteCell Cell="[&quot;D&quot; + CellValue.ToString]" DisplayName="Update Juris Code" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[JurisCode]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
-                          <ui:WriteCell Cell="[&quot;E&quot; + CellValue.ToString]" DisplayName="Update Cost Centre" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[CostCenter]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
-                          <ui:WriteCell Cell="[&quot;F&quot; + CellValue.ToString]" DisplayName="Update Cost Centre" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[InvoiceNum]" WorkbookPath="C:\Users\Sujay\Desktop\ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;A&quot; + CellValue.ToString]" DisplayName="Update GL Code" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[GLCode]" WorkbookPath="ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;B&quot; + CellValue.ToString]" DisplayName="Update WBS" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[WBSNum]" WorkbookPath="ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;C&quot; + CellValue.ToString]" DisplayName="Update PO Num" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[PONumber]" WorkbookPath="ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;D&quot; + CellValue.ToString]" DisplayName="Update Juris Code" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[JurisCode]" WorkbookPath="ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;E&quot; + CellValue.ToString]" DisplayName="Update Cost Centre" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[CostCenter]" WorkbookPath="ArrayElements.xlsx" />
+                          <ui:WriteCell Cell="[&quot;F&quot; + CellValue.ToString]" DisplayName="Update Cost Centre" sap:VirtualizedContainerService.HintSize="414.4,116" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[InvoiceNum]" WorkbookPath="ArrayElements.xlsx" />
                           <Assign DisplayName="Cell increment" sap:VirtualizedContainerService.HintSize="414.4,60" sap2010:WorkflowViewState.IdRef="Assign_20">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Int32">[CellValue]</OutArgument>
@@ -227,7 +227,7 @@
                               <InArgument x:TypeArguments="x:Int32">[Increment + 1]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:MoveIMAPMailMessageToFolder DisplayName="Move processed emails to DL_Invoices Folder" Email="san.uipath@gmail.com" EnableSSL="True" FromFolder="Inbox" sap:VirtualizedContainerService.HintSize="414.4,88" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" MailFolder="DL_Invoices" MailMessage="[mail]" Password="SujayAutomation" Port="993" SecureConnection="Auto" Server="imap.gmail.com" />
+                          <ui:MoveIMAPMailMessageToFolder DisplayName="Move processed emails to DL_Invoices Folder" Email="san.uipath@gmail.com" EnableSSL="True" FromFolder="Inbox" sap:VirtualizedContainerService.HintSize="414.4,88" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" MailFolder="DL_Invoices" MailMessage="[mail]" Password="SujayAutomation123" Port="993" SecureConnection="Auto" Server="imap.gmail.com" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
@@ -237,7 +237,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="Request was not completed as no attachments were found." DisplayName="Send No attachments Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="SujayAutomation" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="No attachments found" To="[mail.Sender.Address]">
+                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="Request was not completed as no attachments were found." DisplayName="Send No attachments Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="SujayAutomation123" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="No attachments found" To="[mail.Sender.Address]">
                             <ui:SendMail.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                             </ui:SendMail.Files>
@@ -254,7 +254,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="No proper email found to proceed." DisplayName="Send error Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="False" Password="SujayAutomation" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Error" To="[mail.Sender.Address]">
+                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="No proper email found to proceed." DisplayName="Send error Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="False" Password="SujayAutomation123" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Error" To="[mail.Sender.Address]">
                       <ui:SendMail.Files>
                         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                       </ui:SendMail.Files>
