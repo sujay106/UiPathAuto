@@ -13,9 +13,11 @@
     "UiPath.IntelligentOCR.Activities": "[2.1.0]",
     "UiPath.Mail.Activities": "[1.5.0]",
     "UiPath.PDF.Activities": "[2.0.0]",
+    "UiPath.System.Activities": "[19.5.0]",
     "UiPath.Terminal.Activities": "[1.3.1]",
     "UiPath.UIAutomation.Activities": "[19.5.0]",
-    "UiPath.WebAPI.Activities": "1.4.1"
+    "UiPath.WebAPI.Activities": "1.4.1",
+    "UiPathTeam.OSInformation.Activities": "[1.0.3]"
   },
   "schemaVersion": "3.2",
   "studioVersion": "18.4.1.0",

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1305.6,4228" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uo="clr-namespace:UiPathTeam.OSInformation;assembly=UiPathTeam.OSInformation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1305.6,4188" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -65,15 +65,9 @@
   </sap:WorkflowViewStateService.ViewState>
   <Sequence DisplayName="AP" sap:VirtualizedContainerService.HintSize="1265.6,4108" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="BodyText" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="FilterEmails" />
-      <Variable x:TypeArguments="s:String[]" Name="BodyText2" />
-      <Variable x:TypeArguments="x:String" Default="C:\Users\Sujay\Desktop\DL_Invoice.mht" Name="ProcessPath" />
-      <Variable x:TypeArguments="x:String" Name="TableOp" />
-      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
       <Variable x:TypeArguments="x:String" Name="MailSubject" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="Increment" />
-      <Variable x:TypeArguments="uo:WindowsInformation" Name="VerINfo" />
       <Variable x:TypeArguments="x:Int32" Default="2" Name="CellValue" />
       <Variable x:TypeArguments="x:String" Name="InvoiceNum" />
     </Sequence.Variables>
@@ -89,16 +83,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Read Emails (IMAP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="1220.8,22.4" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[FilterEmails]" OnlyUnreadMessages="True" Password="SujayAutomation123" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1220.8,3796" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[FilterEmails]">
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1220.8,3796" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[FilterEmails]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
             </ActivityAction.Argument>
             <Sequence sap:VirtualizedContainerService.HintSize="1204.8,3661.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Default="C:\Users\Sujay\Desktop\AP" Name="Path2" />
-              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -106,13 +97,13 @@
               </sap:WorkflowViewStateService.ViewState>
               <If Condition="[mail.Subject.Contains(&quot;DL_Invoice&quot;)]" sap:VirtualizedContainerService.HintSize="1182.4,3536.8" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="820.8,3387.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence sap:VirtualizedContainerService.HintSize="798.4,3387.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[mail.Attachments.Any]" sap:VirtualizedContainerService.HintSize="798.4,3262.4" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If Condition="[mail.Attachments.Any]" sap:VirtualizedContainerService.HintSize="776,3262.4" sap2010:WorkflowViewState.IdRef="If_4">
                       <If.Then>
                         <Sequence DisplayName="Move to folder" sap:VirtualizedContainerService.HintSize="436.8,3112.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <Sequence.Variables>
@@ -121,7 +112,6 @@
                             <Variable x:TypeArguments="x:String" Name="CostCenter" />
                             <Variable x:TypeArguments="x:String" Name="GLCode" />
                             <Variable x:TypeArguments="x:String" Name="WBSNum" />
-                            <Variable x:TypeArguments="ui:GenericValue" Name="ArrayElements" />
                           </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -231,34 +221,34 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="336.8,271.2" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="Request was not completed as no attachments were found." DisplayName="Send No attachments Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="SujayAutomation123" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="No attachments found" To="[mail.Sender.Address]">
-                            <ui:SendMail.Files>
-                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                            </ui:SendMail.Files>
-                          </ui:SendMail>
-                        </Sequence>
+                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="Request was not completed as no attachments were found.&#xD;&#xA;&#xD;&#xA;--------------------------------&#xD;&#xA;This is an auto-generated reply." DisplayName="Send No attachments Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" From="san.uipath@gmail.com" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_3" IsBodyHtml="False" Name="RPA - Automated Reply" Password="SujayAutomation123" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="No attachments found" To="[mail.From.Address]">
+                          <ui:SendMail.Files>
+                            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                          </ui:SendMail.Files>
+                        </ui:SendMail>
                       </If.Else>
                     </If>
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <Sequence sap:VirtualizedContainerService.HintSize="336.8,271.2" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <Sequence sap:VirtualizedContainerService.HintSize="359.2,396" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="No proper email found to proceed." DisplayName="Send error Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="False" Password="SujayAutomation123" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Error" To="[mail.Sender.Address]">
-                      <ui:SendMail.Files>
-                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                      </ui:SendMail.Files>
-                    </ui:SendMail>
+                    <Sequence sap:VirtualizedContainerService.HintSize="336.8,271.2" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="No proper email found to proceed.&#xD;&#xA;&#xD;&#xA;--------------------------------&#xD;&#xA;This is an auto-generated reply." DisplayName="Send error Email (SMTP)" Email="san.uipath@gmail.com" EnableSSL="True" From="san.uipath@gmail.com" sap:VirtualizedContainerService.HintSize="314.4,146.4" sap2010:WorkflowViewState.IdRef="SendMail_4" IsBodyHtml="False" Name="RPA - Automated Reply" Password="SujayAutomation123" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Error" To="[mail.From.Address]">
+                        <ui:SendMail.Files>
+                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                        </ui:SendMail.Files>
+                      </ui:SendMail>
+                    </Sequence>
                   </Sequence>
                 </If.Else>
               </If>
